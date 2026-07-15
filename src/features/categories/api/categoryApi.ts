@@ -13,22 +13,22 @@ export const defaultCategories: CategoryRequest[] = [
 
 export const categoryApi = {
   async list(activeOnly?: boolean) {
-    const response = await apiClient.get('/api/v1/categories', { params: activeOnly ? { activeOnly: true } : undefined });
+    const response = await apiClient.get('/categories', { params: activeOnly ? { activeOnly: true } : undefined });
     return unwrapResponse<Category[]>(response.data) ?? [];
   },
   async create(body: CategoryRequest) {
-    const response = await apiClient.post('/api/v1/categories', body);
+    const response = await apiClient.post('/categories', body);
     return unwrapResponse<Category>(response.data);
   },
   async update(id: string, body: CategoryRequest) {
-    const response = await apiClient.put(`/api/v1/categories/${id}`, body);
+    const response = await apiClient.put(`/categories/${id}`, body);
     return unwrapResponse<Category>(response.data);
   },
   deactivate(id: string) {
-    return apiClient.patch(`/api/v1/categories/${id}/deactivate`);
+    return apiClient.patch(`/categories/${id}/deactivate`);
   },
   reactivate(id: string) {
-    return apiClient.patch(`/api/v1/categories/${id}/reactivate`);
+    return apiClient.patch(`/categories/${id}/reactivate`);
   },
   async ensureDefaultCategories(activeOnly = true) {
     const existing = await this.list(false);
