@@ -3,7 +3,8 @@ import { clearTokens, getAccessToken, getRefreshToken, saveTokens } from './toke
 
 type RetriableRequest = InternalAxiosRequestConfig & { _retry?: boolean };
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+const backendURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+const baseURL = `${backendURL.replace(/\/$/, '')}/api/v1`;
 
 export const apiClient = axios.create({
   baseURL,
@@ -66,7 +67,7 @@ apiClient.interceptors.response.use(
     originalRequest._retry = true;
 
     try {
-      const refreshResponse = await axios.post(`${baseURL}/api/v1/auth/refresh`, { refreshToken });
+      const refreshResponse = await axios.post(`${baseURL}/auth/refresh`, { refreshToken });
       const tokens = readTokens(refreshResponse.data);
       if (!tokens.accessToken) {
         throw new Error('Refresh response did not include an access token');
