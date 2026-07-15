@@ -13,16 +13,16 @@ function normalizeAuthResponse(payload: unknown): Required<Pick<AuthResponse, 'a
 
 export const authApi = {
   async login(body: LoginRequest) {
-    const response = await apiClient.post('/api/v1/auth/login', body);
+    const response = await apiClient.post('/auth/login', body);
     return normalizeAuthResponse(response.data);
   },
   async register(body: RegisterRequest) {
-    const response = await apiClient.post('/api/v1/auth/register', body);
+    const response = await apiClient.post('/auth/register', body);
     return normalizeAuthResponse(response.data);
   },
   async logout() {
     const refreshToken = getRefreshToken();
     if (!refreshToken) return;
-    await apiClient.post('/api/v1/auth/logout', { refreshToken });
+    await apiClient.post('/auth/logout', { refreshToken });
   },
 };
