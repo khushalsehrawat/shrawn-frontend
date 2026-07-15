@@ -41,7 +41,7 @@ export const expenseApi = {
     const params = Object.fromEntries(
       Object.entries(filters).filter(([key, value]) => !['sortDirection', 'page', 'size'].includes(key) && value !== '' && value !== undefined && value !== null),
     );
-    const response = await apiClient.get('/api/v1/expenses', { params });
+    const response = await apiClient.get('/expenses', { params });
     const pageData = normalizeExpenseList(response.data);
     if (!sortDirection) return pageData;
 
@@ -55,14 +55,14 @@ export const expenseApi = {
     };
   },
   async create(body: ExpenseRequest) {
-    const response = await apiClient.post('/api/v1/expenses', body);
+    const response = await apiClient.post('/expenses', body);
     return normalizeExpense(unwrapResponse<Expense>(response.data));
   },
   async update(id: string, body: ExpenseRequest) {
-    const response = await apiClient.put(`/api/v1/expenses/${id}`, body);
+    const response = await apiClient.put(`/expenses/${id}`, body);
     return normalizeExpense(unwrapResponse<Expense>(response.data));
   },
   delete(id: string) {
-    return apiClient.delete(`/api/v1/expenses/${id}`);
+    return apiClient.delete(`/expenses/${id}`);
   },
 };
