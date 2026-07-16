@@ -3,7 +3,7 @@ import { clearTokens, getAccessToken, getRefreshToken, saveTokens } from './toke
 
 type RetriableRequest = InternalAxiosRequestConfig & { _retry?: boolean };
 
-const backendURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+const backendURL = import.meta.env.VITE_API_BASE_URL;
 const baseURL = `${backendURL.replace(/\/$/, '')}/api/v1`;
 
 export const apiClient = axios.create({
