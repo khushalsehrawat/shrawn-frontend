@@ -1,9 +1,11 @@
 import { Link, Outlet } from 'react-router-dom';
+import { SeoMetadata } from '../shared/components/SeoMetadata';
 import logo from '../assets/logo.png';
 
 export default function AuthLayout() {
   return (
     <main className="min-h-screen px-4 py-8">
+      <SeoMetadata />
       <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl items-center gap-8 lg:grid-cols-[1fr_0.9fr]">
         <section className="hidden lg:block">
           <Link to="/" className="inline-flex items-center gap-3 text-lg font-bold text-slate-950">

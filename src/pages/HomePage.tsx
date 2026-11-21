@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { BarChart3, LockKeyhole, ReceiptText, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../shared/components/Button';
+import { SeoMetadata } from '../shared/components/SeoMetadata';
 import logo from '../assets/logo.png';
 
 const features = [
@@ -14,6 +15,7 @@ const features = [
 export function HomePage() {
   return (
     <>
+      <SeoMetadata />
       <main className="min-h-screen px-4 py-6">
         <nav className="mx-auto flex max-w-7xl items-center justify-between">
           <Link to="/" className="flex items-center gap-3 font-bold text-slate-950">

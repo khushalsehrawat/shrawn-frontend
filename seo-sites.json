@@ -1,0 +1,20 @@
+{
+  "sites": [
+    {
+      "name": "shrawn-frontend",
+      "root": ".",
+      "base_url": "https://shrawn-five.vercel.app/",
+      "pages": {
+        "index.html": "https://shrawn-five.vercel.app/"
+      },
+      "client_metadata": {
+        "source": "src/shared/components/SeoMetadata.tsx",
+        "routes": [
+          "/",
+          "/login",
+          "/register"
+        ]
+      }
+    }
+  ]
+}
