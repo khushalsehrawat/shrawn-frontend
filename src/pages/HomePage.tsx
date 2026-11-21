@@ -74,8 +74,7 @@ export function HomePage() {
       <footer className="mx-auto max-w-7xl border-t border-slate-200 px-4 py-6 text-center text-sm text-slate-600">
         <a
           href="https://www.thebenzzcreations.com/"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="nofollow"
           title="TheBenzzCreations"
           className="inline-block rounded-sm underline decoration-slate-300 underline-offset-4 transition hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600"
         >
